@@ -15,19 +15,10 @@ const int buttonPin = 12;
 
 // CRGB leds[NUM_LEDS];
 
-
-/*
-String currentMinute;
-String previousMinute;
-
-String currentHour;
-String previousHour;
-*/
-
 int buttonState = 0;        
 int general_state = 1;
 
-//int stunde;
+
 
 
 void setup() {
