@@ -1,68 +1,79 @@
 void minuten() { 
   DateTime now = rtc.now();
+  minute = rtc.now.minute();
 
-
-  if (now.minute() > 57 || now.minute() < 3) {
-    
-    Serial.println("uhr");
-    uhr();
-    currentMinute = "voll";
-  } else if (now.minute() > 3 && now.minute() < 7) {
-    fuenf();
-    nach();
-    Serial.println("5 nach");
-    currentMinute = "5 nach";
-  } else if (now.minute() > 7 && now.minute() < 12) {
-    zehn();
-    nach();
-    Serial.println("10 nach");
-    currentMinute = "10 nach";
-  } else if (now.minute() > 12 && now.minute() < 17) {
-    viertel();
-    nach();
-    Serial.println("15 nach");
-    currentMinute = "15 nach";
-  } else if (now.minute() > 17 && now.minute() < 23) {
-    zwanzig();
-    nach();
-    Serial.println("20 nach");
-    currentMinute = "20 nach";
-  } else if (now.minute() > 23 && now.minute() < 27) {
-    fuenf();
-    vor();
-    halb();
-    Serial.println("5 vor halb");
-    currentMinute = "5 vor halb";
-  } else if (now.minute() > 27 && now.minute() < 33) {
-    halb();
-    Serial.println("halb");
-    currentMinute = "halb";
-  } else if (now.minute() > 33 && now.minute() < 37) {
-    fuenf();
-    nach();
-    halb();
-    Serial.println("5 nach halb");
-    currentMinute = "5 nach halb";
-  } else if (now.minute() > 37 && now.minute() < 43) {
-    zwanzig();
-    vor();
-    Serial.println("20 vor");
-    currentMinute = "20 vor";
-  } else if (now.minute() > 43 && now.minute() < 47) {
-    viertel();
-    vor();
-    Serial.println("15 vor");
-    currentMinute = "15 vor";
-  } else if (now.minute() > 47 && now.minute() < 53) {
-    zehn();
-    vor();
-    Serial.println("10 vor");
-    currentMinute = "10 vor";
-  } else if (now.minute() > 53 && now.minute() < 56) {
-    fuenf();
-    vor();
-    Serial.println("5 vor");
-    currentMinute = "5 vor";
+  switch(minute){
+    case minute >= 5:
+      fuenf();
+      nach();
+      //Serial.println("5 nach");
+      currentMinute = "5 nach";
+      break;
+    case minute >= 10:
+      zehn();
+      nach();
+      //Serial.println("10 nach");
+      currentMinute = "10 nach";
+      break;
+    case minute >= 15:
+      viertel();
+      nach();
+      //Serial.println("10 nach");
+      currentMinute = "15 nach";
+      break;
+    case minute >= 20:
+      zwanzig();
+      nach();
+      //Serial.println("20 nach");
+      currentMinute = "20 nach";
+      break;
+    case minute >= 25:
+      fuenf();
+      vor();
+      halb();
+      //Serial.println("5 vor halb");
+      currentMinute = "5 vor halb";
+      break;
+    case minute >= 30:
+      halb();
+      //Serial.println("halb");
+      currentMinute = "halb";
+      break;
+    case minute >= 35:
+      fuenf();
+      nach();
+      halb();
+      //Serial.println("5 nach halb");
+      currentMinute = "5 nach halb";
+      break;
+    case minute >= 40:
+      zwanzig();
+      vor();
+      //Serial.println("20 vor");
+      currentMinute = "20 vor";
+      break;
+    case minute >= 45:
+      viertel();
+      vor();
+      //Serial.println("viertel vor");
+      currentMinute = "15 vor";
+      break;
+    case minute >= 50:
+      zehn();
+      vor();
+      //Serial.println("5 vor halb");
+      currentMinute = "10 vor";
+      break;
+    case minute >= 55:
+      fuenf();
+      vor();
+      //Serial.println("5 vor");
+      currentMinute = "5 vor";
+      break;
+    default:
+      Serial.println("uhr");
+      uhr();
+      currentMinute = "voll";
   }
   //delay(500);
 }
@@ -76,31 +87,6 @@ void stunden() {
       FastLED.show();
       Serial.println("Eins");
       currentHour = "1";
-    }else if (stunde == 2){
-      FastLED.clear();
-      FastLED.show();
-      Serial.println("zwei");
-      currentHour = "2";
-    }else if (stunde == 3){
-      FastLED.clear();
-      FastLED.show();
-      Serial.println("drei");
-      currentHour = "3";
-    }else if (stunde == 4){
-      FastLED.clear();
-      FastLED.show();
-      Serial.println("vier");
-      currentHour = "4";
-    }else if (stunde == 5){
-      FastLED.clear();
-      FastLED.show();
-      Serial.println("fünf");
-      currentHour = "5";
-    }else if (stunde == 6){
-      FastLED.clear();
-      FastLED.show();
-      Serial.println("sechs");
-      currentHour = "6";
     }else if (stunde == 7){
       sieben();
       Serial.println("sieben");
@@ -296,7 +282,7 @@ void stunden() {
       FastLED.clear();
       FastLED.show();
       Serial.println("zwölf");
-      currentHour = "224";
+      currentHour = "24";
     }
   }
   

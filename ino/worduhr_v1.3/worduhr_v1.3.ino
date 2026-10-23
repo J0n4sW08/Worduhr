@@ -14,8 +14,6 @@ RTC_PCF8523 rtc;
 
 // CRGB leds[NUM_LEDS];
 
-
-
 int  currentMinute;
 int  previousMinute;
 
@@ -26,7 +24,6 @@ int buttonState = 0;
 int general_state = 1;
 
 int stunde;
-
 
 void setup() {
   rtc.begin();
@@ -56,11 +53,8 @@ void setup() {
   FastLED.clear();
   FastLED.show();
   delay(500);
-
   
 }
-
-
 
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
@@ -99,20 +93,18 @@ void loop() {
   Serial.print(now.second());
   Serial.println();
 
-
-  
-
   if (stunde < 22 && stunde > 6) {
     es();
     ist();
     minuten();
     stunden();
   }
+
+  // ab 22 bis 6 Uhr nichts anzeigen
   else {
     FastLED.clear();
     FastLED.show();
   }
-
 
   if (currentMinute != previousMinute){
     //update the previous value
@@ -121,6 +113,7 @@ void loop() {
     FastLED.clear();
     FastLED.show();
   }
+
   if (currentHour != previousHour){
     //update the previous value
     previousHour = currentHour;
@@ -131,9 +124,3 @@ void loop() {
   digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
 
 }
-
-
-
-
-
-
