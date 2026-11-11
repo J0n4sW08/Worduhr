@@ -11,7 +11,7 @@ extern int currentMinute;
 extern int previousMinute;
 extern int currentHour;
 extern int previousHour;
-extern int stunde;
+
 
 void es();
 void ist();

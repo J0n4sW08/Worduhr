@@ -3,3 +3,6 @@
 void minuten();
 void stunden();
 void knightRider(int red, int green, int blue, int ridingWidth, int delayDuration, int returnDelayDuration);
+int minute();
+int stunde();
+void connect();
