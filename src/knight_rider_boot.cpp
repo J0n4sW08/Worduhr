@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <FastLED.h>
 #include "Words.h"
+#include "Clock.h"
 
 void knightRider(int red, int green, int blue, int ridingWidth, int delayDuration, int returnDelayDuration){
   for(int i = 0; i < (NUM_LEDS - ridingWidth - 2); i++) {

@@ -2,6 +2,7 @@
 #include <FastLED.h>
 #include <RTClib.h>
 #include "Words.h"
+#include "Clock.h"
 
 void minuten() { 
   DateTime now = rtc.now();

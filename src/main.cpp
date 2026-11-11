@@ -2,23 +2,13 @@
 # include "Wire.h"
 # include "RTClib.h"
 # include "FastLED.h"
-#include "Words.h"
-
-void minuten();
-void stunden();
-void knightRider(int red, int green, int blue, int ridingWidth, int delayDuration, int returnDelayDuration);
-
-
+# include "Words.h"
+# include "Clock.h"
 
 #define DATA_PIN 4
 
 const int buttonPin = 12;
-
 RTC_PCF8523 rtc;
-
-
-
-
 
 int  currentMinute;
 int  previousMinute;
@@ -31,16 +21,10 @@ int general_state = 1;
 
 int stunde;
 
-
 void setup() {
   rtc.begin();
 
   FastLED.addLeds<WS2812B, DATA_PIN>(leds, NUM_LEDS);
-
-  digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(1000);                      // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
-  delay(1000);     
 
   Serial.begin(9600);
 
