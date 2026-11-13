@@ -35,21 +35,14 @@ void zehn() {
                                         
 void zwanzig() {                                        
   leds[14] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[15] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[16] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[17] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[18] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[19] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[20] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   return;                                       
-}                                       
+}
                                         
 void drei() {                                       
   leds[21] = CRGB(255, 255, 255);
@@ -143,15 +136,10 @@ void vier() {
                                         
 void sechs() {                                        
   leds[65] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[66] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[67] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[68] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[69] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   return;                                       
 }                                       
 void acht() {                                       
@@ -164,17 +152,11 @@ void acht() {
 }                                       
 void sieben() {                                       
   leds[74] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[75] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[76] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[77] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[78] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   leds[79] = CRGB(255, 255, 255);                                       
-  FastLED.show();                                       
   return;                                       
 }                                       
 void zwoelf() {                                       
@@ -205,4 +187,4 @@ void uhr() {
   leds[93] = CRGB(255, 255, 255);
   leds[94] = CRGB(255, 255, 255);
   return;
-}                                       
+}

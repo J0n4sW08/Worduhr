@@ -18,6 +18,9 @@ void connect()
 {
     bool ledOn = true;
     showStatus(CRGB::Blue, ledOn);
+    WiFi.mode(WIFI_STA);
+    WiFi.setSleepMode(WIFI_NONE_SLEEP);
+    WiFi.setAutoReconnect(true);
     WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
     while (WiFi.status() != WL_CONNECTED)
@@ -27,9 +30,13 @@ void connect()
         showStatus(CRGB::Blue, ledOn);
         Serial.print(".");
     }
+    showStatus(CRGB::Red, true);
+    Serial.println("\nWLAN verbunden");
+    Serial.print("IP-Adresse: ");
+    Serial.println(WiFi.localIP());
+    delay(750);
     FastLED.clear(true);
     Serial.println("Success!! ");
-    Serial.print(WiFi.localIP());
 
     // NTP liefert UTC; TZ wandelt die Anzeige automatisch in Berliner
     // Sommer- bzw. Winterzeit um.
@@ -46,6 +53,8 @@ void connect()
         showStatus(CRGB::Yellow, ledOn);
         Serial.print(".");
     }
+    showStatus(CRGB::Green, true);
+    delay(750);
     FastLED.clear(true);
     FastLED.setBrightness(255);
     Serial.println("\nNTP-Zeit synchronisiert");
