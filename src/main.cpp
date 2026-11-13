@@ -1,6 +1,8 @@
 #include "Arduino.h"
 #include "Wire.h"
 #include "FastLED.h"
+#include <ESP8266WiFi.h>
+#include <ArduinoOTA.h>
 #include "Words.h"
 #include "Clock.h"
 
@@ -18,8 +20,16 @@ int general_state = 1;
 void setup()
 {
   Serial.begin(9600);
-  connect();
   FastLED.addLeds<WS2812B, DATA_PIN>(leds, NUM_LEDS);
+  connect();
+
+  ArduinoOTA.setHostname("wortuhr");
+  ArduinoOTA.begin();
+  Serial.print("OTA bereit unter wortuhr.local (IP: ");
+  Serial.print(WiFi.localIP());
+  Serial.println(")");
+
+  FastLED.setBrightness(255);
 
   Serial.println("run");
   knightRider(0, 255, 0, 3, 30, 50);
@@ -37,6 +47,8 @@ void setup()
 
 void loop()
 {
+  ArduinoOTA.handle();
+
   // TODO Add debugging Prints
   const int aktuelleStunde = stunde();
   Serial.print("Uhrzeit: ");
@@ -46,30 +58,15 @@ void loop()
 
   if (aktuelleStunde < 22 && aktuelleStunde > 6)
   {
+    FastLED.clear();
     es();
     ist();
     minuten();
     stunden();
+    FastLED.show();
   }
   else
   {
     FastLED.clear(true);
-  }
-
-  if (currentMinute != previousMinute)
-  {
-    // update the previous value
-    previousMinute = currentMinute;
-    Serial.println("Wechsel!!!");
-    FastLED.clear();
-    FastLED.show();
-  }
-  if (currentHour != previousHour)
-  {
-    // update the previous value
-    previousHour = currentHour;
-    Serial.println("Wechsel!!!");
-    FastLED.clear();
-    FastLED.show();
   }
 }
